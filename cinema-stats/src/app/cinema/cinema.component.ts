@@ -18,12 +18,17 @@ const MOVIE_DUMMY_DATA: iMovie[] = [
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
-
+  
+  displayedColumns: string[] = ['number', 'name'];
+  dataSource = MOVIE_DUMMY_DATA;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  displayedColumns: string[] = ['number', 'name'];
-  dataSource = MOVIE_DUMMY_DATA;
+  
+  addMovie() {
+
+  }
 }

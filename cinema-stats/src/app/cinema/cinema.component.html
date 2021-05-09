@@ -1,5 +1,12 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
+<button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
     <!-- Number Column -->
     <ng-container matColumnDef="number">
       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -15,3 +22,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</div>
+
+<button mat-button (click)="addMovie()">Add Movie</button>
