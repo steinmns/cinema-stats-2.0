@@ -3,12 +3,17 @@ import { Component, OnInit } from '@angular/core';
 export interface iMovie {
   name: string;
   number: number;
+  date: Date | undefined;
+  rating: number;
+  genre: string;
+  comments: string | undefined;
+  rewatch: boolean | undefined;
 }
 
 const MOVIE_DUMMY_DATA: iMovie[] = [
-  {number: 1, name: 'Citizen Kane'},
-  {number: 2, name: 'Grand Budapest Hotel'},
-  {number: 3, name: 'Mad Max'},
+  {number: 1, name: 'Citizen Kane', date: undefined, rating: 9, genre:'Drama', comments:'Pretty good', rewatch: true},
+  {number: 2, name: 'Grand Budapest Hotel', date: undefined, rating: 8, genre:'Drama', comments:'Fun!', rewatch: undefined},
+  {number: 3, name: 'Mad Max', date: undefined, rating: 6, genre:'Action', comments:'Crazy!', rewatch: false},
 ];
 
 
@@ -19,9 +24,9 @@ const MOVIE_DUMMY_DATA: iMovie[] = [
 })
 export class CinemaComponent implements OnInit {
   
-  displayedColumns: string[] = ['number', 'name'];
+  displayedColumns: string[] = ['number', 'name', 'date', 'rating', 'genre', 'comments', 'rewatch'];
   dataSource = MOVIE_DUMMY_DATA;
-  
+
   constructor() { }
 
   ngOnInit(): void {
