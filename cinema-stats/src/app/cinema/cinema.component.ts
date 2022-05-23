@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/HttpService/http.service';
+import { Observable } from 'rxjs';
+
 
 export interface iMovie {
   name: string;
@@ -26,14 +29,16 @@ export class CinemaComponent implements OnInit {
   
   displayedColumns: string[] = ['number', 'name', 'date', 'rating', 'genre', 'comments', 'rewatch'];
   dataSource = MOVIE_DUMMY_DATA;
+  movieData: any;
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    const response = this.httpService.getMovies('0').subscribe(response => {
+      this.movieData = response;
+    },);
   }
 
-  
   addMovie() {
-
   }
 }
